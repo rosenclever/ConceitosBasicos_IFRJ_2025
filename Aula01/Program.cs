@@ -1,6 +1,55 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using Aula01._1bim;
 using System.Runtime.InteropServices;
 
+int opcao = 0;
+bool continuar = true;
+while (continuar)
+{
+    Console.WriteLine("0 - Sair");
+    Console.WriteLine("1 - Somar dois numeros");
+    Console.WriteLine("2 - Converter metros para milímetros");
+    Console.WriteLine("Informe a opção desejada: ");
+    opcao = int.Parse(Console.ReadLine());
+    switch (opcao)
+    {
+        case 1:
+            Soma();
+            break;
+        case 2:
+            Conversor();
+            break;
+        case 0:
+            continuar = false;
+            break;
+        default:
+            Console.WriteLine("opção inválida");
+            break;
+    }
+}
+
+void Soma()
+{
+    int num1, num2;
+    Console.WriteLine("Informe o primeiro número");
+    num1 = int.Parse(Console.ReadLine());
+    Console.WriteLine("Informe o segundo número");
+    num2 = int.Parse(Console.ReadLine());
+    SomaDoisNumeros somador = new SomaDoisNumeros();
+    int resultado = somador.Somar(num1, num2);
+    Console.WriteLine($"A soma dos números {num1} e {num2} é {resultado}");
+}
+
+void Conversor()
+{
+    MetrosMilimetros metrosMilimetros = new MetrosMilimetros();
+    Console.WriteLine("Informe o valor em metros: ");
+    int metros = int.Parse(Console.ReadLine());
+    Console.WriteLine($"O valor {metros}m corresponde a {metrosMilimetros.Converter(metros)} ");
+
+}
+
+/*
 Console.WriteLine("Hello, World!");
 Console.WriteLine("Informe seu nome: ");
 string nome = Console.ReadLine();
@@ -46,4 +95,4 @@ catch(Exception e)
 {
     Console.WriteLine("Ocorreu um erro desconhecido, contate o desenvolvedor.");
 }
-
+*/
